@@ -9,6 +9,17 @@
   </a>
   <img src="https://img.shields.io/badge/version-2.6-blue.svg?cacheSeconds=2592000" alt="version"/>
 </p>
+## Windows下编译
+
+```bash
+mkdir build
+cd build
+%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+cmake .. -G "Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Release -DARGPARSE_BUILD_TESTS=ON
+msbuild /maxcpucount:4 /p:Configuration=Release /p:PreferredToolArchitecture=x64 ALL_BUILD.vcxproj -t:rebuild
+```
+
+
 
 ## Highlights
 
