@@ -271,3 +271,5 @@ analysis-cppcheck-build-dir
 ideas
 
 desktop.iniimages/
+
+dist/*
