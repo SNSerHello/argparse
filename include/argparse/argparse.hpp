@@ -1036,7 +1036,7 @@ public:
   void parse_args(const std::vector<std::string> &arguments) {
     parse_args_internal(arguments);
     // Check if all arguments are parsed
-    for ([[maybe_unused]] const auto& [unused, argument] : m_argument_map) {
+    for (const auto& [unused, argument] : m_argument_map) {
       argument->validate();
     }
   }
@@ -1220,7 +1220,7 @@ private:
       return 0;
     }
     std::size_t max_size = 0;
-    for ([[maybe_unused]] const auto& [unused, argument] : m_argument_map) {
+    for (const auto& [unused, argument] : m_argument_map) {
       max_size = std::max(max_size, argument->get_arguments_length());
     }
     return max_size;

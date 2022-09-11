@@ -17,12 +17,24 @@
 mkdir build
 cd build
 %comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
-cmake .. -G "Visual Studio 15 2017 Win64" -DARGPARSE_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=../dist/argparse
+cmake .. -G "Visual Studio 15 2017 Win64" -DARGPARSE_BUILD_TESTS=ON -DCMAKE_INSTALL_PREFIX=../dist/argparse
 msbuild /maxcpucount:4 /p:Configuration=Release /p:PreferredToolArchitecture=x64 ALL_BUILD.vcxproj -t:rebuild
 msbuild /maxcpucount:4 /p:Configuration=Release /p:PreferredToolArchitecture=x64 INSTALL.vcxproj
 ```
 
-**注**：在Windows下，测试文件有问题，无法编译成功，错误信息为：`argparse\test\..\include\argparse/argparse.hpp(1039): fatal error C1001: An internal error has occurred in the compiler.`
+**测试**
+
+```bash
+test\Release\tests.exe
+
+运行结果
+[doctest] doctest version is "2.4.8"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases: 144 | 144 passed | 0 failed | 1 skipped
+[doctest] assertions: 639 | 639 passed | 0 failed |
+[doctest] Status: SUCCESS!
+```
 
 
 
